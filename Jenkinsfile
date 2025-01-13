@@ -16,19 +16,21 @@ pipeline {
     stage('Test') {
       steps {
         echo('hello test')
+        echo('helo test1')
       }
     }
 
     stage('Build') {
       steps {
         echo('hello build')
-        sh ('error')
+        echo('hello build1')
       }
     } 
     
     stage('Deploy') {
       steps {
         echo('hello deploy')
+        echo('hello deploy1')
       }
     }
 
