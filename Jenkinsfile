@@ -10,7 +10,13 @@ pipeline {
           }
         }
         steps {
-          echo 'Building....'
+          script {
+            for (int i = 0; i < 5; i++) {
+              echo 'Script ${i}'
+            }
+          }
+          echo 'Start Building....'
+          sh './mvnw clean compile test-compile'
         }
       }
 
@@ -21,7 +27,16 @@ pipeline {
           }
         }
         steps {
+          script {
+            def data = [
+              'firstName': 'John',
+              'lastName': 'Doe',
+            ]
+            writeJSON (file: 'data.json', json: data)
+          }
           echo 'Testing....'
+          sh './mvnw test'
+          echo 'Finished testing....'
         }
       }
 
