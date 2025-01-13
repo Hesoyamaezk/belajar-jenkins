@@ -23,7 +23,6 @@ pipeline {
           echo "Start Job : ${env.JOB_NAME}"
           echo "Start Building.... : ${env.BUILD_NUMBER}"
           echo "Branch Name : ${env.BRANCH_NAME}"
-          echo "App User : ${APP_USR}"
         }
       }
 
