@@ -7,14 +7,15 @@ pipeline {
 
   stages{
     
-    stage('heloo') {
-      steps {
-        echo('hello pipline')
-      }
-    }
-    
     stage('Build') {
       steps {
+
+        script {
+          for (int i = 0; i < 10; i++) {
+            echo ('script' ${i})
+          }
+        }
+
         echo('Start Build')
         sh('./mvnw clean compile test-compile')
         echo('Finish Build')
