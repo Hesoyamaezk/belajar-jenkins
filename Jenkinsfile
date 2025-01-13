@@ -9,6 +9,9 @@ pipeline {
     stages {
 
       stage('Preparation') {
+        environment {
+            APP = credentials('izam_izam')
+          }
         agent {
           node {
              label 'linux && java11'
@@ -17,6 +20,8 @@ pipeline {
         steps {
           echo "Author : ${env.AUTHOR}"
           echo "Email : ${env.EMAIL}"
+          echo "App user : ${APP_USR}"
+          echo "App password : ${APP_PSW}"
           echo "Start Job : ${env.JOB_NAME}"
           echo "Start Building.... : ${env.BUILD_NUMBER}"
           echo "Branch Name : ${env.BRANCH_NAME}"
