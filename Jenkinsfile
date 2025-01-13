@@ -3,6 +3,19 @@ pipeline {
 
     stages {
 
+      stage('Preparation') {
+        agent {
+          node {
+             label 'linux && java11'
+          }
+        }
+        steps {
+          echo 'Preparing.... Start Job : ${env.JOB_NAME}'
+          echo 'Start Building.... : ${env.BUILD_NUMBER}'
+          echo 'Branch Name : ${env.BRANCH_NAME}'
+        }
+      }
+
       stage('Build') {
         agent {
           node {
@@ -17,6 +30,7 @@ pipeline {
           }
           echo 'Start Building....'
           sh './mvnw clean compile test-compile'
+          echo 'Finished Building....'
         }
       }
 
