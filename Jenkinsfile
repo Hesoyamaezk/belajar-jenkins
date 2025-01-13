@@ -10,9 +10,9 @@ pipeline {
           }
         }
         steps {
-          echo 'Preparing.... Start Job : ${env.JOB_NAME}'
-          echo 'Start Building.... : ${env.BUILD_NUMBER}'
-          echo 'Branch Name : ${env.BRANCH_NAME}'
+          echo "Start Job : ${env.JOB_NAME}"
+          echo "Start Building.... : ${env.BUILD_NUMBER}"
+          echo "Branch Name : ${env.BRANCH_NAME}"
         }
       }
 
