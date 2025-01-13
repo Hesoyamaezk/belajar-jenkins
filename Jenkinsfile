@@ -11,9 +11,11 @@ pipeline {
       steps {
 
         script {
-          for (int i = 0; i < 10; i++) {
-            echo ('Script ${i}')
-          }
+          def data =  [
+              'firstName': 'ahmad',
+              'lastName': 'wizam'
+          ]
+          writeJSON(file: 'data.json', json: data)
         }
 
         echo('Start Build')
