@@ -2,7 +2,40 @@ pipeline {
   agent none
 
   stages{
-    
+
+
+    stage('Preparation') {
+      agent {
+        node {
+          label 'linux && java11'
+        }
+      }
+      steps {
+        echo('Start Preparation Job : ${env.JOB_NAME}')
+        echo('Start build number :  ${env.BUILD_NUMBER}')
+        echo('Branch Name : ${env.BRANCH_NAME}')
+      }
+     agent {
+        node {
+          label 'linux && java11'
+        }
+      }
+      steps {
+
+        script {
+          def data =  [
+              'firstName': 'ahmad',
+              'lastName': 'wizam'
+          ]
+          writeJSON(file: 'data.json', json: data)
+        }
+
+        echo('Start Build')
+        sh('./mvnw clean compile test-compile')
+        echo('Finish Build')
+      }
+    }
+
     stage('Build') {
      agent {
         node {
