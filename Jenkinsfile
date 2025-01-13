@@ -1,13 +1,14 @@
 pipeline {
-  agent {
-    node {
-      label 'linux && java11'
-    }
-  }
+  agent none
 
   stages{
     
     stage('Build') {
+     agent {
+        node {
+          label 'linux && java11'
+        }
+      }
       steps {
 
         script {
@@ -25,6 +26,11 @@ pipeline {
     }
 
     stage('test') {
+      agent {
+        node {
+          label 'linux && java11'
+        }
+      }
       steps {
         echo('Start Test')
         sh('./mvnw test')
@@ -32,7 +38,12 @@ pipeline {
       }
     } 
     
-    stage('Deploy') {
+    stage('Deploy') { 
+      agent {
+        node {
+          label 'linux && java11'
+        }
+      }
       steps {
         echo('hello deploy')
         echo('hello deploy1')
