@@ -15,6 +15,9 @@ pipeline {
         echo('Start build number :  ${env.BUILD_NUMBER}')
         echo('Branch Name : ${env.BRANCH_NAME}')
       }
+
+
+    stage('Build') {
      agent {
         node {
           label 'linux && java11'
