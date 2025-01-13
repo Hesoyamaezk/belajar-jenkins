@@ -5,6 +5,15 @@ pipeline {
         AUTHOR = 'Ahmad wizam'
         EMAIL = 'Ahmadwizam12@gmail.com'
     }
+
+    parameters {
+        string(name: 'BRANCH_NAME', defaultValue: 'master', description: 'Branch to build')
+        text(name: 'APP_USR', defaultValue: 'admin', description: 'App Username')
+        booleanParam(name: 'DEPLOY', defaultValue: true, description: 'Deploy after build')
+        choice(name: 'CHOICE', choices: ['one', 'two', 'three'], description: 'Pick something')
+        password(name: 'APP_PSW', defaultValue: 'admin', description: 'App Password') 
+    }
+
     options {
         disableConcurrentBuilds()
         timeout(time: 10, unit: 'MINUTES')
