@@ -23,6 +23,21 @@ pipeline {
 
     stages {
 
+      stage ('parameter') {
+        agent {
+          node {
+             label 'linux && java11'
+          }
+        }
+        steps {
+          echo "Branch Name : ${params.BRANCH_NAME}"
+          echo "App User : ${params.APP_USR}"
+          echo "Deploy : ${params.DEPLOY}"
+          echo "Choice : ${params.CHOICE}"
+          echo "App Password : ${params.APP_PSW}"
+        }
+      }
+
       stage('Preparation') {
         environment {
             APP = credentials("izam_ID")
