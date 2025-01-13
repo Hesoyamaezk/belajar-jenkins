@@ -12,7 +12,7 @@ pipeline {
 
         script {
           for (int i = 0; i < 10; i++) {
-            echo ('script' ${i})
+            echo ('Script ${i}')
           }
         }
 
