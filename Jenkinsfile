@@ -22,6 +22,7 @@ pipeline {
     stage('Build') {
       steps {
         echo('hello build')
+        sh ('error')
       }
     } 
     
