@@ -9,9 +9,6 @@ pipeline {
     stages {
 
       stage('Preparation') {
-        environment {
-            APP = credentials('izam_izam')
-          }
         agent {
           node {
              label 'linux && java11'
