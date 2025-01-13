@@ -49,7 +49,7 @@ pipeline {
 
         script {
           def data =  [
-              'firstName': 'ahmad',
+            'firstName': 'ahmad',
               'lastName': 'wizam'
           ]
           writeJSON(file: 'data.json', json: data)
@@ -103,4 +103,4 @@ pipeline {
       }
   }
 
-
+}
