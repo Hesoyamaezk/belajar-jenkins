@@ -4,7 +4,13 @@ pipeline {
     environment {
         AUTHOR = 'Ahmad wizam'
         EMAIL = 'Ahmadwizam12@gmail.com'
-      }
+    }
+    options {
+        disableConcurrentBuilds()
+        timeout(time: 10, unit: 'MINUTES')
+    }
+
+
 
     stages {
 
