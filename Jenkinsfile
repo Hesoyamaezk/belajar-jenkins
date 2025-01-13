@@ -13,17 +13,19 @@ pipeline {
       }
     }
     
-    stage('Test') {
+    stage('Build') {
       steps {
-        echo('hello test')
-        echo('helo test1')
+        echo('Start Build')
+        sh('./mvnw clean compile test-compile')
+        echo('Finish Build')
       }
     }
 
-    stage('Build') {
+    stage('test') {
       steps {
-        echo('hello build')
-        echo('hello build1')
+        echo('Start Test')
+        sh('./mvnw test')
+        echo('Finish Test')
       }
     } 
     
