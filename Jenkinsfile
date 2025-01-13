@@ -10,7 +10,7 @@ pipeline {
 
       stage('Preparation') {
         environment {
-            APP = credentials('izam_ID')
+            APP = credentials("izam_ID")
           }
         agent {
           node {
