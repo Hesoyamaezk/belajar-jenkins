@@ -6,11 +6,18 @@ pipeline {
         EMAIL = 'Ahmadwizam12@gmail.com'
     }
 
-    triggers {
-        //cron('*/5 * * * *')
-        pollSCM('*/5 * * * *')
-        //upstream(upstreamProjects: 'my-job', threshold: 'SUCCESS')
-    }
+//     triggers {
+//        cron('*/5 * * * *')
+//        pollSCM('*/5 * * * *')
+//        upstream(upstreamProjects: 'my-job', threshold: 'SUCCESS')
+//    }
+    parameters {
+        string(name: "NAME", defaultValue: "Guest", description: "What is your name?")
+        text(name: "DESCRIPTION", defaultValue: "Guest", description: "Tell me about you")
+        booleanParam(name: "DEPLOY", defaultValue: false, description: "Need to Deploy?")
+        choice(name: "SOCIAL_MEDIA", choices: ['Instagram', 'Facebook', 'Twitter'], description: "Which Social Media?")
+        password(name: "SECRET", defaultValue: "", description: "Encrypt Key")
+    } 
 
     options {
         disableConcurrentBuilds()
