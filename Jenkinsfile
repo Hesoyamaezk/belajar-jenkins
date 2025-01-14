@@ -35,11 +35,11 @@ pipeline {
           }
         }
         steps {
-          echo "Branch Name : ${params.BRANCH_NAME}"
-          echo "App User : ${params.APP_USR}"
-          echo "Deploy : ${params.DEPLOY}"
-          echo "Choice : ${params.CHOICE}"
-          echo "App Password : ${params.APP_PSW}"
+          echo "Hello ${params.NAME}"
+          echo "You description is ${params.DESCRIPTION}"
+          echo "Your social medis is ${params.SOCIAL_MEDIA}"
+          echo "Need to deploy : ${params.DEPLOY} to deploy!"
+          echo "Your secret is ${params.SECRET}"
         }
       }
 
