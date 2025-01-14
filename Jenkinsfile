@@ -103,6 +103,11 @@ pipeline {
       }
 
       stage('Deploy') {
+        input {
+          message 'Do you want to deploy?'
+          ok 'Yes'
+          submitter 'admin'
+        }
         agent {
           node {
              label 'linux && java11'
